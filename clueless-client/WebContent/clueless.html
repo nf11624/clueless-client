@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="./client.js"></script>
+<title>Clueless by The A-Team</title>
+</head>
+<body>
+	<div id="header">
+		Welcome to Clue-less(R) by the A-Team.  
+	</div>
+	<div id="game_status"></div>
+	<div id="display">
+		<div id="gameDisplay">
+		<div id="gameboard">
+			<img alt="" src="./cluelessBoard.png"></img>
+		</div>
+		<div id="statusPanel">
+			<div id="locations"></div>
+			<div id="weapons"></div>
+			<div id="playerStatus"></div>
+		</div>
+		</div>
+		<div id="actionPanel">
+			<div id="legalMoves"><select id="moveSelect"></select></div>
+			<button id="makeMove" onClick="makeMove();"></button>
+		</div>
+	</div>
+</body>
+</html>
