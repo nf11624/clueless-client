@@ -1,7 +1,7 @@
 /**
  *  JavaScript to handle displaying the client
  */
-var activePlayers = [1,2];//,3,4,5,6];
+var activePlayers = [1,2,3,4,5,6];
 var currentPlayer = 1;
 var gameOver = false;
 
@@ -103,8 +103,8 @@ function suggest(accuse) {
 			else {
 				// Remove the current player from the active player list
 				for( var i = 0; i < activePlayers.length-1; i++) { 
-					if ( array[i] === currentPlayer) {
-						arr.splice(i, 1); 
+					if ( activePlayers[i] === currentPlayer) {
+						activePlayers.splice(i, 1); 
 					}
 				}
 			}
