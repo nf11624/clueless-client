@@ -2,29 +2,200 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="./client.js"></script>
+<style>
+table, th, tr, td {
+	border: 1px solid black;
+}
+
+#currPlayerName {
+	font-weight: bold;
+}
+
+#currPlayerLoc {
+	font-weight: bold;
+}
+</style>
 <title>Clueless by The A-Team</title>
 </head>
 <body>
-	<div id="header">
-		Welcome to Clue-less(R) by the A-Team.  
-	</div>
+	<div id="header">Welcome to Clue-less(R) by the A-Team.</div>
 	<div id="game_status"></div>
+	<hr />
 	<div id="display">
 		<div id="gameDisplay">
-		<div id="gameboard">
-			<img alt="" src="./cluelessBoard.png"></img>
+			<table>
+				<tr>
+					<td>
+						<div id="gameboard">
+							<img alt="" src="cluelessBoard.png"></img>
+						</div>
+					</td>
+					<td>
+						<div id="statusPanel">
+							<div id="locations"></div>
+							<table id="playerTable">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Location</th>
+									</tr>
+								</thead>
+								<tbody id="summaryTable">
+
+								</tbody>
+							</table>
+							<div id="weapons">
+								<table id="weaponTable">
+									<thead>
+										<tr>
+											<th>Weapon</th>
+											<th>Location</th>
+										</tr>
+									</thead>
+									<tbody id="weaponStatusTable">
+
+									</tbody>
+								</table>
+							</div>
+							<hr />
+							<hr />
+							<div id="playerStatus">
+								<table>
+									<tbody>
+										<tr>
+											<td><div id='currPlayerName'></div></td>
+											<td><div id='currPlayerLoc'></div></td>
+										</tr>
+									</tbody>
+								</table>
+								<table>
+									<thead>
+										<tr>
+											<th>Card</th>
+										</tr>
+									</thead>
+									<tbody id='statusTable'>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
-		<div id="statusPanel">
-			<div id="locations"></div>
-			<div id="weapons"></div>
-			<div id="playerStatus"></div>
-		</div>
-		</div>
+		<hr />
 		<div id="actionPanel">
-			<div id="legalMoves"><select id="moveSelect"></select></div>
-			<button id="makeMove" onClick="makeMove();"></button>
+			<table>
+				<tr>
+					<td>
+						<div id='suggestAccusePanel'>
+							<table>
+								<tr>
+									<td>
+										<table>
+											<tr>
+												<td><input type="radio" name="player" value="1">Miss
+													Scarlet</td>
+												<td><input type="radio" name="player" value="2">Col
+													Mustard</td>
+											</tr>
+											<tr>
+												<td><input type="radio" name="player" value="5">Prof
+													Plum</td>
+												<td><input type="radio" name="player" value="3">Mr
+													Green</td>
+											</tr>
+											<tr>
+												<td><input type="radio" name="player" value="4">Mrs
+													Peacock</td>
+												<td><input type="radio" name="player" value="6">Mrs
+													White</td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<table>
+											<tr>
+												<td><input type="radio" name="weapon" value="leadPipe">Lead
+													Pipe</td>
+												<td><input type="radio" name="weapon"
+													value="candlestick">Candlestick</td>
+											</tr>
+											<tr>
+												<td><input type="radio" name="weapon" value="rope">Rope</td>
+												<td><input type="radio" name="weapon" value="knife">Knife</td>
+											</tr>
+											<tr>
+												<td><input type="radio" name="weapon" value="revolver">Revolver</td>
+												<td><input type="radio" name="weapon" value="wrench">Wrench</td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<table>
+											<tr>
+												<td><input type="radio" name="room" value="Study">Study</td>
+												<td><input type="radio" name="room" value="Hall">Hall</td>
+												<td><input type="radio" name="room" value="Lounge">Lounge</td>
+											</tr>
+											<tr>
+												<td><input type="radio" name="room" value="Library">Library</td>
+												<td><input type="radio" name="room"
+													value="Billiard Room">Candlestick</td>
+												<td><input type="radio" name="room" value="Dining Room">Dining
+													Room</td>
+											</tr>
+											<tr>
+												<td><input type="radio" name="room"
+													value="Conservatory">Conservatory</td>
+												<td><input type="radio" name="room" value="Ball Room">Ball
+													Room</td>
+												<td><input type="radio" name="room" value="Kitchen">Kitchen</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button id="suggest" onClick="suggest();">SUGGEST</button>
+									</td>
+									<td>
+										<button id="accuse" onClick="accuse();">ACCUSE</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="movePanel">
+							<table>
+								<tr>
+									<td>
+										<div id="legalMoves">
+											<select id="moveSelect"></select>
+										</div>
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>
+										<button id="makeMove" onClick="makeMove();">MOVE</button>
+									</td>
+									<td>
+										<button id="finish" onClick="finishTurn();">FINISH
+											TURN</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 </body>
