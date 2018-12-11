@@ -137,35 +137,18 @@ table, th, tr, td {
 									<td>
 										<table>
 											<tr>
-												<td><input type="radio" name="room" value="Study">Study</td>
-												<td><input type="radio" name="room" value="Hall">Hall</td>
-												<td><input type="radio" name="room" value="Lounge">Lounge</td>
+												<td>
+													<button id="suggest" onClick="suggest(false);">SUGGEST</button>
+												</td>
 											</tr>
 											<tr>
-												<td><input type="radio" name="room" value="Library">Library</td>
-												<td><input type="radio" name="room"
-													value="Billiard Room">Candlestick</td>
-												<td><input type="radio" name="room" value="Dining Room">Dining
-													Room</td>
-											</tr>
-											<tr>
-												<td><input type="radio" name="room"
-													value="Conservatory">Conservatory</td>
-												<td><input type="radio" name="room" value="Ball Room">Ball
-													Room</td>
-												<td><input type="radio" name="room" value="Kitchen">Kitchen</td>
+												<td>
+													<button id="accuse" onClick="suggest(true);">ACCUSE</button>
+												</td>
 											</tr>
 										</table>
-									</td>
 								</tr>
-								<tr>
-									<td>
-										<button id="suggest" onClick="suggest();">SUGGEST</button>
-									</td>
-									<td>
-										<button id="accuse" onClick="accuse();">ACCUSE</button>
-									</td>
-								</tr>
+
 							</table>
 						</div>
 					</td>
@@ -193,7 +176,11 @@ table, th, tr, td {
 								</tr>
 							</table>
 						</div>
+
+						<div id="messages"></div>
 					</td>
+
+
 				</tr>
 			</table>
 		</div>
